@@ -4,7 +4,7 @@ extension=yaf.so
 ;配置环境类型dev(开发状态)| product(开发环境)
 yaf.environ = dev
 ;php扩展内目录.
-yaf.library = "/data/www/xuan/yafLib"
+yaf.library = "/data/www/yafLib"
 ;是否开启配置文件缓存 0:不缓存,1:缓存
 yaf.cache_config = 0
 ;在处理Controller, Action, Plugin, Model的时候, 类名中关键信息是否是后缀式, 比如UserModel, 而在前缀模式下则是ModelUser (这里使用的是后缀)
