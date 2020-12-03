@@ -45,6 +45,9 @@ class BaseYaf
     public static function api()
     {
         try {
+            // 无页面渲染
+            self::disableView();
+
             self::dispatcher()
                 ->returnResponse(true);
 
@@ -71,9 +74,17 @@ class BaseYaf
      */
     public static function cli()
     {
-        return self::bootstrap()
-            ->getDispatcher()
-            ->returnResponse(true);
+        try {
+            // 无页面渲染
+            self::disableView();
+            return self::bootstrap()
+                ->getDispatcher()
+                ->dispatch(new \Yaf\Request\Simple());
+
+        } catch ( \Throwable $t ) {
+            echo $t->getTraceAsString();
+        }
+
     }
 
     /**
